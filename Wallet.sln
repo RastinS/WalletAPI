@@ -1,0 +1,41 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "exer\Main.csproj", "{388FAA38-AFEE-4672-A110-A468A9664B3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuisinessLogic", "BuisinessLogic\BuisinessLogic.csproj", "{30BF6E11-C7FC-46CD-B70E-CB7C34BC36CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{4B9F08CF-51BE-4482-AE45-90A1FF78A63D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{388FAA38-AFEE-4672-A110-A468A9664B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388FAA38-AFEE-4672-A110-A468A9664B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388FAA38-AFEE-4672-A110-A468A9664B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388FAA38-AFEE-4672-A110-A468A9664B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30BF6E11-C7FC-46CD-B70E-CB7C34BC36CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30BF6E11-C7FC-46CD-B70E-CB7C34BC36CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30BF6E11-C7FC-46CD-B70E-CB7C34BC36CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30BF6E11-C7FC-46CD-B70E-CB7C34BC36CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B9F08CF-51BE-4482-AE45-90A1FF78A63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B9F08CF-51BE-4482-AE45-90A1FF78A63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B9F08CF-51BE-4482-AE45-90A1FF78A63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B9F08CF-51BE-4482-AE45-90A1FF78A63D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$1.ResourceNamePolicy = MSBuild
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+	EndGlobalSection
+EndGlobal
