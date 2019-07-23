@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BuisinessLogic.HelperServices;
+using Main.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using www.karmasms.ir;
 
 namespace Main.Controllers
 {
@@ -13,17 +13,19 @@ namespace Main.Controllers
         private SignInManager<DomainLayer.User.User> _signManager;
         private UserManager<DomainLayer.User.User> _userManager;
         private readonly IEmailService _emailService;
+        private readonly ISMSService _smsService;
 
         public AccountController(UserManager<DomainLayer.User.User> userManager,
-            SignInManager<DomainLayer.User.User> signManager, IEmailService emailService)
+            SignInManager<DomainLayer.User.User> signManager, IEmailService emailService, ISMSService smsService)
         {
             _userManager = userManager;
             _signManager = signManager;
             _emailService = emailService;
+            _smsService = smsService;
         }
 
         [HttpPost] 
-        public async Task<IActionResult> SignUp(Models.SignUpViewModel model)
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -33,24 +35,25 @@ namespace Main.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                   PhoneNumber = model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber
                 };
-                /*if (KarmaSMSCore.SMSHelper.SendSMS("300087777", "rastin", "!@#123", "09355905880", "Hi From WalletAPI"))
-                {
-                    Console.WriteLine("SMS Sent\n\n");
-                }
-                else
-                {
-                    Console.WriteLine("SMS Failed to send\n\n");
-                }*/
 
-                await _emailService.SendEmail(model.Email, "WalletAPI", "Hi from wallet API");
-                //var result = await _userManager.CreateAsync(user, model.Password);
-                
-                
-                /*if (result.Succeeded)
+                //await Task.Run(() => _smsService.SendSMS(model.PhoneNumber));
+
+            
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
-                    await _signManager.SignInAsync(user, false);
+                    string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    DomainLayer.User.User tempUser = await _userManager.FindByEmailAsync(user.Email);
+                    string callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = tempUser.Id, code = code },
+                        protocol: Request.Scheme);
+
+                    _emailService.SendConfirmationEmail(user, callbackUrl);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -59,7 +62,7 @@ namespace Main.Controllers
                     {
                         ModelState.AddModelError("", error.Description);
                     }
-                }*/
+                }
             }
             return View();
         }
@@ -78,7 +81,7 @@ namespace Main.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Models.LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -89,9 +92,11 @@ namespace Main.Controllers
                     var user = await _userManager.FindByNameAsync(model.Username).ConfigureAwait(false);
                     if(user != null)
                     {
-                        Console.WriteLine("\nlogging in " + user.UserName + "\n");
                         await _signManager.SignInAsync(user, model.RememberMe);
                     }
+
+                    if (user.UserName.Equals("admin") || user.UserName.Equals("Admin"))
+                        return RedirectToAction("Index", "Admin");
 
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
@@ -107,10 +112,16 @@ namespace Main.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await _signManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail()
+        {
             return RedirectToAction("Index", "Home");
         }
     }

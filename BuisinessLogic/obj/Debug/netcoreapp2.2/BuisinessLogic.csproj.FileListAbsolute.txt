@@ -1,0 +1,12 @@
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\bin\Debug\netcoreapp2.2\BuisinessLogic.deps.json
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\bin\Debug\netcoreapp2.2\BuisinessLogic.dll
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\bin\Debug\netcoreapp2.2\BuisinessLogic.pdb
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.csprojAssemblyReference.cache
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.AssemblyInfoInputs.cache
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.AssemblyInfo.cs
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.dll
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.pdb
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\bin\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\bin\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\BuisinessLogic\obj\Debug\netcoreapp2.2\BuisinessLogic.csproj.CopyComplete

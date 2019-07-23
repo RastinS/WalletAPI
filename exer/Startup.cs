@@ -50,6 +50,7 @@ namespace Main
             services.Configure<IdentityOptions>(options =>
             {
                 options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
 
                 // Password settings.
                 options.Password.RequireUppercase = true;
@@ -82,6 +83,7 @@ namespace Main
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ISMSService, SMSService>();
             services.AddHttpContextAccessor();
 
             services.Configure<GzipCompressionProviderOptions>(options =>

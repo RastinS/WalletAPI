@@ -1,0 +1,11 @@
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.deps.json
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.runtimeconfig.json
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.runtimeconfig.dev.json
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.csproj.CoreCompileInputs.cache
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.AssemblyInfoInputs.cache
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.AssemblyInfo.cs
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.csprojAssemblyReference.cache

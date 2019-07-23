@@ -1,14 +1,17 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using DomainLayer.User;
+using System.Text.Encodings.Web;
 
 namespace BuisinessLogic.HelperServices
 {
+
     public interface IEmailService
     {
-        Task SendEmail(string email, string subject, string message);
+        void SendConfirmationEmail(User user, string callBackUrl);
     }
 
     public class EmailService : IEmailService
@@ -19,32 +22,41 @@ namespace BuisinessLogic.HelperServices
             _configuration = configuration;
         }
 
-        public async Task SendEmail(string email, string subject, string message)
-        {
-            using (var client = new SmtpClient())
-            {
-                var credential = new NetworkCredential
-                {
-                    UserName = _configuration["Email:Email"],
-                    Password = _configuration["Email:Password"]
-                };
-                Console.WriteLine(credential.UserName + " and " + credential.Password + "\n\n");
-                client.Credentials = credential;
-                client.Host = _configuration["Email:Host"];
-                client.Port = int.Parse(_configuration["Email:Port"]);
-                client.EnableSsl = true;
-                client.UseDefaultCredentials = false;
 
-                using (var emailMessage = new MailMessage())
-                {
-                    emailMessage.To.Add(new MailAddress(email));
-                    emailMessage.From = new MailAddress(_configuration["Email:Email"]);
-                    emailMessage.Subject = subject;
-                    emailMessage.Body = message;
-                    client.Send(emailMessage);
-                }
+        public void SendConfirmationEmail(User user, string callBackUrl)
+        {
+            string message = File.ReadAllText("../BuisinessLogic/Resources/ConfirmationEmail.html");
+            message = message.Replace("X1num1X", HtmlEncoder.Default.Encode(callBackUrl));
+            string subject = "Wallet API Email Confirmation";
+            SendEmail(user.Email, subject, message);
+        }
+
+        private void SendEmail(string email, string subject, string message)
+        {
+            try
+            {
+                MailMessage msg = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+
+                msg.From = new MailAddress(_configuration["Email:Email"]);
+                msg.To.Add(new MailAddress(email));
+
+                msg.Subject = subject;
+                msg.IsBodyHtml = true;
+                msg.Body = message;
+
+                smtp.Port = int.Parse(_configuration["Email:Port"]);
+                smtp.Host = _configuration["Email:Host"];
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(_configuration["Email:Email"], _configuration["Email:Password"]);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(msg);
             }
-            await Task.CompletedTask;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace + "\n" + e.Message);
+            }
         }
 
     }
