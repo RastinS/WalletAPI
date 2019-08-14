@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2019\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,7 +58,7 @@
             },
             "System.ServiceModel.Duplex": {
               "target": "Package",
-              "version": "[4.4.*, )"
+              "version": "[4.5.3, )"
             },
             "System.ServiceModel.Http": {
               "target": "Package",
@@ -101,6 +102,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2019\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

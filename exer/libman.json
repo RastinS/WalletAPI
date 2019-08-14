@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "unpkg",
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "bootstrap-fileinput@5.0.4",
+      "destination": "wwwroot/lib/bootstrap-fileinput/"
+    },
+    {
+      "library": "popper.js@1.15.0",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "jquery-migrate@1.4.1",
+      "destination": "wwwroot/js/jquery-migrate/"
+    }
+  ]
+}

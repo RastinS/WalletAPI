@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BuisinessLogic.HelperServices;
 using Main.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace Main.Controllers
             _smsService = smsService;
         }
 
+        [AllowAnonymous]
         [HttpPost] 
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
@@ -67,12 +69,14 @@ namespace Main.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult SignUp()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
@@ -80,6 +84,7 @@ namespace Main.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -107,11 +112,26 @@ namespace Main.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
+                else
+                {
+                    if(result.IsNotAllowed)
+                    {
+                        ModelState.AddModelError("", "Confirm your Email address");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid login credentials");
+                    }
+                }
             }
-            ModelState.AddModelError("", "Invalid login attempt");
+            else
+            {
+                ModelState.AddModelError("", "Invalid login credentials");
+            }
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

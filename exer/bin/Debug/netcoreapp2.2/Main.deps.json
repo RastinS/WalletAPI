@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "de641d070f9cfa5c1a235e3c3f8a652e6e3995ad"
+    "signature": "a29fdd11b38023fda43d9f61708b57186e4ed23d"
   },
   "compilationOptions": {
     "defines": [
@@ -33,11 +33,15 @@
           "Microsoft.EntityFrameworkCore.Tools": "2.2.6",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
-          "System.ServiceModel.Duplex": "4.4.4",
+          "System.ServiceModel.Duplex": "4.5.3",
           "System.ServiceModel.Http": "4.4.4",
           "System.ServiceModel.NetTcp": "4.4.4",
           "System.ServiceModel.Primitives": "4.5.3",
-          "System.ServiceModel.Security": "4.4.4"
+          "System.ServiceModel.Security": "4.4.4",
+          "Telerik.UI.for.AspNet.Core": "2019.1.220",
+          "bootstrap": "4.3.1",
+          "bootstrap.sass": "4.3.1",
+          "jQuery": "3.4.1"
         },
         "runtime": {
           "Main.dll": {}
@@ -46,6 +50,19 @@
           "Main.dll": {}
         }
       },
+      "bootstrap/4.3.1": {
+        "dependencies": {
+          "jQuery": "3.4.1",
+          "popper.js": "1.14.0"
+        }
+      },
+      "bootstrap.sass/4.3.1": {
+        "dependencies": {
+          "jQuery": "3.4.1",
+          "popper.js": "1.14.0"
+        }
+      },
+      "jQuery/3.4.1": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp": "2.8.0",
@@ -163,6 +180,25 @@
       "Microsoft.EntityFrameworkCore.Tools/2.2.6": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.2.6"
+        }
+      },
+      "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
+        "dependencies": {
+          "System.AppContext": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.20622"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration/2.2.3": {
@@ -299,6 +335,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "popper.js/1.14.0": {},
       "Remotion.Linq/2.2.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -481,6 +518,18 @@
           "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
         }
       },
+      "System.Data.Common/4.1.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Data.SqlClient/4.6.1": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.5.0",
@@ -571,14 +620,14 @@
         }
       },
       "System.Reflection.DispatchProxy/4.5.0": {},
-      "System.ServiceModel.Duplex/4.4.4": {
+      "System.ServiceModel.Duplex/4.5.3": {
         "dependencies": {
           "System.Private.ServiceModel": "4.5.3",
           "System.ServiceModel.Primitives": "4.5.3"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Duplex.dll": {
-            "assemblyVersion": "4.1.0.3",
+            "assemblyVersion": "4.5.0.3",
             "fileVersion": "4.6.26720.1"
           }
         },
@@ -670,11 +719,89 @@
           }
         }
       },
+      "Telerik.UI.for.AspNet.Core/2019.1.220": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.TagHelpers": "2.2.0",
+          "Microsoft.AspNetCore.Routing": "2.2.0",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+          "System.Data.Common": "4.1.0",
+          "System.Linq.Queryable": "4.0.1",
+          "System.Net.Http": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Kendo.Mvc.dll": {
+            "assemblyVersion": "2019.1.220.0",
+            "fileVersion": "2019.1.220.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/bg-BG/Kendo.Mvc.resources.dll": {
+            "locale": "bg-BG"
+          },
+          "lib/netstandard2.0/cs-CZ/Kendo.Mvc.resources.dll": {
+            "locale": "cs-CZ"
+          },
+          "lib/netstandard2.0/da-DK/Kendo.Mvc.resources.dll": {
+            "locale": "da-DK"
+          },
+          "lib/netstandard2.0/de-DE/Kendo.Mvc.resources.dll": {
+            "locale": "de-DE"
+          },
+          "lib/netstandard2.0/es-ES/Kendo.Mvc.resources.dll": {
+            "locale": "es-ES"
+          },
+          "lib/netstandard2.0/fr-CA/Kendo.Mvc.resources.dll": {
+            "locale": "fr-CA"
+          },
+          "lib/netstandard2.0/fr-FR/Kendo.Mvc.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "lib/netstandard2.0/it-IT/Kendo.Mvc.resources.dll": {
+            "locale": "it-IT"
+          },
+          "lib/netstandard2.0/nl-NL/Kendo.Mvc.resources.dll": {
+            "locale": "nl-NL"
+          },
+          "lib/netstandard2.0/pl-PL/Kendo.Mvc.resources.dll": {
+            "locale": "pl-PL"
+          },
+          "lib/netstandard2.0/pt-BR/Kendo.Mvc.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/pt-PT/Kendo.Mvc.resources.dll": {
+            "locale": "pt-PT"
+          },
+          "lib/netstandard2.0/ro-RO/Kendo.Mvc.resources.dll": {
+            "locale": "ro-RO"
+          },
+          "lib/netstandard2.0/ru-RU/Kendo.Mvc.resources.dll": {
+            "locale": "ru-RU"
+          },
+          "lib/netstandard2.0/sv-SE/Kendo.Mvc.resources.dll": {
+            "locale": "sv-SE"
+          },
+          "lib/netstandard2.0/tr-TR/Kendo.Mvc.resources.dll": {
+            "locale": "tr-TR"
+          },
+          "lib/netstandard2.0/uk-UA/Kendo.Mvc.resources.dll": {
+            "locale": "uk-UA"
+          },
+          "lib/netstandard2.0/zh-CN/Kendo.Mvc.resources.dll": {
+            "locale": "zh-CN"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Kendo.Mvc.dll": {}
+        }
+      },
       "BuisinessLogic/1.0.0": {
         "dependencies": {
           "DomainLayer": "1.0.0",
           "Microsoft.AspNetCore": "2.2.0",
-          "System.ServiceModel.Duplex": "4.4.4",
+          "System.ServiceModel.Duplex": "4.5.3",
           "System.ServiceModel.Http": "4.4.4",
           "System.ServiceModel.NetTcp": "4.4.4",
           "System.ServiceModel.Security": "4.4.4"
@@ -3764,6 +3891,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "bootstrap/4.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lrVBeG2vmfwsHJuwSzeXz+1hPn/374vXDOAusU50vzljEWcFOFtif3wzIJJqfqQRHs2RnY0xttZ0Zv5JX4BFGg==",
+      "path": "bootstrap/4.3.1",
+      "hashPath": "bootstrap.4.3.1.nupkg.sha512"
+    },
+    "bootstrap.sass/4.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K75hC5YtxsmvSDPiVJNQ3ykH+yrdFyylhbM+dQPHUVUBJk16ZTqKjcTJmgIY9Zmbpqs78fk5K6HV8UCBy22Xjg==",
+      "path": "bootstrap.sass/4.3.1",
+      "hashPath": "bootstrap.sass.4.3.1.nupkg.sha512"
+    },
+    "jQuery/3.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vDD5O2nuVN2rF0rTASFSJNM5ef50niEP5HsXDQyXPPZH1rBaAaLtCutHG5wvXOPmrQw+MEZHOcOk9kYmdnL/Xw==",
+      "path": "jquery/3.4.1",
+      "hashPath": "jquery.3.4.1.nupkg.sha512"
+    },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",
       "serviceable": true,
@@ -3827,6 +3975,13 @@
       "path": "microsoft.entityframeworkcore.tools/2.2.6",
       "hashPath": "microsoft.entityframeworkcore.tools.2.2.6.nupkg.sha512"
     },
+    "Microsoft.Extensions.PlatformAbstractions/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zyjUzrOmuevOAJpIo3Mt5GmpALVYCVdLZ99keMbmCxxgQH7oxzU58kGHzE6hAgYEiWsdfMJLjVR7r+vSmaJmtg==",
+      "path": "microsoft.extensions.platformabstractions/1.0.0",
+      "hashPath": "microsoft.extensions.platformabstractions.1.0.0.nupkg.sha512"
+    },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.2.3": {
       "type": "package",
       "serviceable": true,
@@ -3889,6 +4044,13 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "popper.js/1.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SPxZdXknelgQ015wey7GMZvsVdt/SyEmHYORhEp5k/uF9MUk9DPtkn+6dR98fud2hVWJjZm9KKr474+r7WQt+A==",
+      "path": "popper.js/1.14.0",
+      "hashPath": "popper.js.1.14.0.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",
@@ -3974,6 +4136,13 @@
       "path": "system.composition.typedparts/1.0.31",
       "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
     },
+    "System.Data.Common/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q==",
+      "path": "system.data.common/4.1.0",
+      "hashPath": "system.data.common.4.1.0.nupkg.sha512"
+    },
     "System.Data.SqlClient/4.6.1": {
       "type": "package",
       "serviceable": true,
@@ -4016,12 +4185,12 @@
       "path": "system.reflection.dispatchproxy/4.5.0",
       "hashPath": "system.reflection.dispatchproxy.4.5.0.nupkg.sha512"
     },
-    "System.ServiceModel.Duplex/4.4.4": {
+    "System.ServiceModel.Duplex/4.5.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-y/XLnKJ+xnuEUjrgJkXeLKCH4A+EwkX2TdOcTdgsEtxWmWq1+RbCjMd0zIlyNrbGD+nM9BxNg9rLVWVAPq81RA==",
-      "path": "system.servicemodel.duplex/4.4.4",
-      "hashPath": "system.servicemodel.duplex.4.4.4.nupkg.sha512"
+      "sha512": "sha512-cXn6zfl2od9Au3sDpArjUXo7zmNPLw77sjOrAUqjrh3TsImy8SPMSC4/F58jJGJrxUiyPo0DDwalRaF5JXZqsQ==",
+      "path": "system.servicemodel.duplex/4.5.3",
+      "hashPath": "system.servicemodel.duplex.4.5.3.nupkg.sha512"
     },
     "System.ServiceModel.Http/4.4.4": {
       "type": "package",
@@ -4057,6 +4226,13 @@
       "sha512": "sha512-S0wEUiKcLvRlkFUXca8uio1UQ5bYQzYgOmOKtCqaBQC3GR9AJjh43otcM32IGsAyvadFTaAMw9Irm6dS4Evfng==",
       "path": "system.text.encoding.codepages/4.5.0",
       "hashPath": "system.text.encoding.codepages.4.5.0.nupkg.sha512"
+    },
+    "Telerik.UI.for.AspNet.Core/2019.1.220": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5arGtv6unZoZrRwb6HWHLWJjO5VuKcpYKTHesmfij8/MJIkXVMJUgvLt0JVacIXkPgnCpQZiAMZbP1zwYVGaKA==",
+      "path": "telerik.ui.for.aspnet.core/2019.1.220",
+      "hashPath": "telerik.ui.for.aspnet.core.2019.1.220.nupkg.sha512"
     },
     "BuisinessLogic/1.0.0": {
       "type": "project",

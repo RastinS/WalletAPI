@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
-using System.Threading.Tasks;
-using BuisinessLogic.HelperServices;
+﻿using BuisinessLogic.HelperServices;
+using BuisinessLogic.UsersServices;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
+using System;
+using System.IO.Compression;
+using Newtonsoft.Json.Serialization;
 
 namespace Main
 {
@@ -84,6 +81,7 @@ namespace Main
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<ISMSService, SMSService>();
+            services.AddTransient<IAdminUserService, AdminUserService>();
             services.AddHttpContextAccessor();
 
             services.Configure<GzipCompressionProviderOptions>(options =>
@@ -96,11 +94,13 @@ namespace Main
                 options.Providers.Add<GzipCompressionProvider>();
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            services.AddKendo();
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

@@ -48,8 +48,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <body class=" login">
     <!-- BEGIN LOGO -->
     <div class="logo">
-        <a href="index.html">
-            <img src="~/assets/pages/img/logo-big.png" alt="" />
+        <a asp-controller="home" asp-action="index">
+            <img src="~/assets/pages/img/39006005.png" alt="BlockSoft.ir" width="15%" height="15%"/>
         </a>
     </div>
     <!-- END LOGO -->
@@ -62,6 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <button class="close" data-close="alert"></button>
                 <span> Enter any username and password. </span>
             </div>
+            <div asp-validation-summary="ModelOnly"></div>
             <div class="form-group" asp-for="Item1.Username">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                 <label class="control-label visible-ie8 visible-ie9">Username</label>

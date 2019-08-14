@@ -48,8 +48,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <body class=" login">
     <!-- BEGIN LOGO -->
     <div class="logo">
-        <a href="index.html">
-            <img src="~/assets/pages/img/logo-big.png" alt="" />
+        <a asp-controller="home" asp-action="index">
+            <img src="~/assets/pages/img/39006005.png" alt="BlockSoft.ir" width="15%" height="15%" />
         </a>
     </div>
     <!-- END LOGO -->
@@ -131,6 +131,12 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="form-actions">
                 <button id="register-back-btn" type="button" class="btn red btn-outline"> Back </button>
                 <button type="submit" id="register-submit-btn" class="btn green pull-right" value="SignUp"> Sign Up </button>
+            </div>
+            <div class="create-account">
+                <p>
+                    Allready have an account yet ?&nbsp;
+                    <a class="nav-link text-dark" asp-controller="Account" asp-action="Login" id="register-btn"> Sign in to your account </a>
+                </p>
             </div>
         </form>
         <!-- END REGISTRATION FORM -->

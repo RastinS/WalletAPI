@@ -37,3 +37,5 @@ C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Main.pdb
 C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LogInPartial.g.cshtml.cs
 C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Admin.g.cshtml.cs
 C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Index.g.cshtml.cs
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Razor\Views\Admin\NewPost.g.cshtml.cs
+C:\Users\Rastin\Desktop\Wallet\WalletAPI\exer\obj\Debug\netcoreapp2.2\Razor\Views\Admin\AddPostGroup.g.cshtml.cs

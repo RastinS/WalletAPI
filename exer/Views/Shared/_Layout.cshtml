@@ -40,9 +40,17 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                             @if (User.Identity.IsAuthenticated) { 
-                            <li class="nav-item">
+                        <li class="nav-item">
+                            @if (User.Identity.Name == "admin")
+                            {
+                                <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">admin</a>
+                            }
+                            else
+                            {
                                 <div class="nav-link text-dark">@User.Identity.Name</div>
-                            </li>
+
+                            }
+                        </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
                             </li>

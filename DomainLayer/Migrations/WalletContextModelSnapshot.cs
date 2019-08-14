@@ -19,6 +19,76 @@ namespace DomainLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DomainLayer.Post.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("PostGroupId");
+
+                    b.Property<string>("Text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostGroupId");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.PostGroup", b =>
+                {
+                    b.Property<int>("PostGroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GroupName");
+
+                    b.Property<int?>("ParentId");
+
+                    b.HasKey("PostGroupId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("PostGroups");
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.PostTag", b =>
+                {
+                    b.Property<int>("PostTagId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PostId");
+
+                    b.Property<int>("TagId");
+
+                    b.HasKey("PostTagId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("PostTag");
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.Tag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TagName");
+
+                    b.HasKey("TagId");
+
+                    b.ToTable("Tag");
+                });
+
             modelBuilder.Entity("DomainLayer.User.User", b =>
                 {
                     b.Property<string>("Id")
@@ -182,6 +252,34 @@ namespace DomainLayer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.Post", b =>
+                {
+                    b.HasOne("DomainLayer.Post.PostGroup", "PostGroup")
+                        .WithMany()
+                        .HasForeignKey("PostGroupId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.PostGroup", b =>
+                {
+                    b.HasOne("DomainLayer.Post.PostGroup", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+                });
+
+            modelBuilder.Entity("DomainLayer.Post.PostTag", b =>
+                {
+                    b.HasOne("DomainLayer.Post.Post", "Post")
+                        .WithMany("Tags")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DomainLayer.Post.Tag", "Tag")
+                        .WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
